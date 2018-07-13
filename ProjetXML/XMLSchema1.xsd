@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="produits">
+		<xsd:complexType>
+			<xsd:element name="produit">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="nom"/>
+						<xsd:element name="desc"/>
+						<xsd:element name="prix" type="xsd:positiveDecimal" minOccurs="1"
+							maxOccurs="unbounded"/>
+						<xsd:element name="qte" type="xsd:nonNegativeInteger"/>
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

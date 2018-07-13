@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- -->
+<!DOCTYPE produits SYSTEM "dtd2.dtd">
+<produits>
+	<produit id="A1" categorie="jouet">
+		<nom>test</nom>
+		<desc>test</desc>
+		<prix>test</prix>
+		<qté>test</qté>
+	</produit>
+	<produit id="A2" categorie="livre">
+		<nom>test</nom>
+		<desc>test</desc>
+		<prix>test</prix>
+		<qté>test</qté>
+	</produit>
+</produits>

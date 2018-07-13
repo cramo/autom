@@ -1,0 +1,219 @@
+Formation 03/07/18
+
+Qualimétrie : mesure graduée de la qualité
+
+Selenium webdriver
+Xpath
+
+Html : head non affiché
+xhtml > se forcer a respecter les normes html : pas populaire
+
+flash silverlight > pas besoin avec html 5
+
+AUTOM2
+Yt2w4R7f
+
+Questions a se poser :
+Quels sont les criteres haut niveau
+Quels sont les criteres bas niveau
+Quels sont les métriques
+
+ergonomie, rendu : pas facile a verif en autom
+
+oracle de test : nous dis quels sont les résultats attendus
+
+1er cas de figure
+atom de tnr > recup patrimoine de test (souvent insuffisant)
+
+2
+constition de patrimoine au fil de l'eau
+
+3 
+Binome avec un expert focntionnel /métier
+
+BDD : Behavior Driver Developpement (fournir des formats d'échange entre les équipes) : entre les équipes de qualif et d'autom; par ex ça peut être forcer les testeurs fonctionnels à écrire leurs tests d'une façon précise pour aider les autom a autom leurs test
+
+cucumber, fitnesse
+
+test exploratoire : pas faisable en autom
+
+framework de test unitaire : 
+Java > JUnit & Test NG
+.Net > NUnit
+
+framework de Mock/Bouchonage
+Java > Mockito & JMock
+
+test systeme ; application dans son ensemble
+client lourd : UFT/QTP & Ranorex
+
+app web ; selenium webdriver, sahi, UFT
+
+app mobile : Appium, UFT, Selenium
+
+Webservice : SOAP & REST(http)
+soap besoin client soap
+rest juste besoin d'un navigateur
+
+Test web service : SOAP UI & Postman & Proxy (Fiddler, Zap Proxy)
+
+proxy : le traffic réseau passe par lui
+
+erveur dintégration continue : jenkins, bamboo
+
+gatling, neoload, performance center, jmeter
+
+accessiblité : tanaguru
+
+qualimétrie : sonarQube
+
+Gestionnaire d'artifact : Nexus, Artifactory
+
+Google chrome inspecter l'élément :
+//span
+
+boutonVotreCompte = findElementBy.id "VotreCompte";
+noutonVotreCompte.click();
+
+/html/descendant-or-self::span
+
+//div[@id="nav-tools"]/a[1]/span[@class="nav-line-2"]
+
+ou 
+
+copy > copy xpath
+//*[@id="nav-link-yourAccount"]/span[2]
+
+xpath : parseur xml 
+
+xml : 
+structure >baliss, header, elements, attributs
+validation > dtd, schema
+utilisations > stockage, configuration, echange
+
+Doctype renseigné l'élément racine
+dtd : fichier de regles pour le xml
+ 
+<!ATTLIST element nom 
+
+
+//section[1]/chapitre
+//section[@titre="Section1"]/chapitre
+//section[contains(@titre,"1")]/chapitre
+
+//chapitre[ancestor::section[contains(@titre,"1")]]
+4-
+//auteur[1]/@*
+5-
+//auteur[2]/@nom
+6-
+//section[count(chapitre)<=2]
+7-
+//chapitre[@titre="Chapitre1"]/paragraphe
+//paragraphe/parent::*[@titre="Chapitre1"]
+//paragraphe/parent::chapitre[@titre="Chapitre1"]
+
+
+ex1html
+//div[@class="septembre"]/div[@class="irritant"]
+//div[@class="septembre"]/div[2]
+
+ex2html
+false //span[@class="price"]/text()
+false //a[@href="/cars/102234-10"][sibling::span[.="$20,000"]]
+
+true //span[.="$20,000"]/preceding-sibling::*
+
+
+
+ex3html
+//span[.>1950]/preceding-sibling::span[.="Ford"]
+
+//span[@class="year"and .>1950][self::node[@class="make"and .="Ford"]]
+
+true //span[.>1950]/preceding-sibling::span[.="Ford"]/preceding-sibling::a
+
+
+ex4html
+true //span[.=1958]/preceding-sibling::span[.="Ford"]/preceding-sibling::a
+
+
+ex5
+false //patientrole/id/id/providerorganization/id/name[.="Good Health Clinic"]
+
+true count(//name[.="Good Health Clinic"])
+
+ex6
+//birthtime[@value=19551217]/../../name/family
+
+ex7
+//rate/*[.="30-Year Fixed Rate"]/../subtype[.="B"]/../rate
+
+ex8
+//colorvalue[.="10"]/preceding-sibling::mathcolor
+
+ex9
+//meta[@*="123456"]/ancestor::produit/@id
+
+ex10
+//ul[count(li)=3]/../h1
+
+ex11
+
+
+ex12
+//a[contains (., "match text")]
+
+ex13
+//effectivedate[contains (., "2016")]/following-sibling::percentage
+
+Selenuim > Java + autres languages
+librairie de code
+
+JDK > JVM + outils supplémentaires
+JRE?
+oracle jdk
+open jdk
+
+rien : visible que dans le package (encapsulation)
+
+arcbétype : modele de projet
+
+group id : identifié lorganisation qui a crée le programme
+artifact id : nomdelapp
+snapshot ; version en cours de travail
+jar : java archive > contient tout ce qui a été produit par la compilation (bytecode) compressé
+war : web archive 
+pom : maven fichier de cfg
+
+"bonjour" est un litteral
+dans equals(), il faut mettre le litteral devant car il ne peut être nul
+"bonjour".equals(str);
+
+i++
+++i
+
+Ctrl+Shift+L
+
+
+assertNotEquals
+on peux faire des tests non passant mais le résultat doit être positif (vert dans JUnit)
+Les tests ne doivent pas échoué
+
+poo : héritage, encapsulation, polymorphisme
+
+interface : contrat d'interaction
+
+switch break si on veux qu'une seule instruction soit faite
+sans le break les autrees possibliités seront évaluées
+
+
+Qualification
+Conception
+Livrables bilan et stratégie 
+
+Concetption des ...
+
+ATMP : 
+
+Katalon plugin firefox pour Selenuim

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- -->
+<book>
+	<title>Un livre</title>
+	<authors>
+		<name>nom</name>
+		<name>nom</name>
+	</authors>
+	<section>
+		<title>Section 1</title>
+		<chapter>
+			<title>Titre 1</title>
+			<paragraph>texte</paragraph>
+			<paragraph>texte</paragraph>
+		</chapter>
+		<chapter>
+			<title>Titre 2</title>
+			<paragraph>texte</paragraph>
+			<paragraph>texte</paragraph>
+		</chapter>
+	</section>
+	<section>
+		<title>Section 2</title>
+		<chapter>
+			<title>Titre 3</title>
+			<paragraph>texte</paragraph>
+			<paragraph>texte</paragraph>
+		</chapter>
+		<chapter>
+			<title>Titre 4</title>
+			<paragraph>texte</paragraph>
+			<paragraph>texte</paragraph>
+		</chapter>
+	</section>
+</book>
