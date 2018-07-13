@@ -217,3 +217,5 @@ Concetption des ...
 ATMP : 
 
 Katalon plugin firefox pour Selenuim
+
+kill des tasks geckodriver : taskkill /F /IM geckodriver.exe

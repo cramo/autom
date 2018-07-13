@@ -1,5 +1,8 @@
 package org.eql.autom.orangehrm.pageobject;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,13 +15,9 @@ public class SystemUserPage extends MenuPage {
 	
 	@FindBy(xpath = "//*[@id=\"searchBtn\"]")
 	protected WebElement search;
-
-	//private Select select;
 	
 	public SystemUserPage(WebDriver driver) {
 		super(driver);
-		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		//select = new Select(userRole);
 	}
 	
 	public void selectUserRole(String text) {
@@ -26,21 +25,38 @@ public class SystemUserPage extends MenuPage {
 		select.selectByVisibleText(text);
 	}
 	
-	/*public void selectUserRoleAll() {
-		select.selectByVisibleText("All");
-	}
-	
-	public void selectUserRoleESS() {
-		this.select = new Select(userRole);
-		this.select.selectByValue("2");
-		//select.selectByVisibleText("ESS");
-	}
-	
-	public void selectUserRoleAdmin() {
-		select.selectByVisibleText("Admin");
-	}*/
-	
 	public void clickSearch() {
 		search.click();
 	}
+	
+	public void getUserNameFromEmployeeName(String employeeName) {
+		
+	}
+	
+	public void getUserbyEmployeeName(String employeeName) {
+		List<WebElement> lignes = driver.findElements(By.xpath("//*[@id=\"resultTable\"]/tbody/tr"));
+		for(WebElement ligne : lignes){
+			System.out.println("lignes = " + lignes.size());
+			List<WebElement> colonne = ligne.findElements(By.xpath("td"));
+			System.out.println("colonnes = " + colonne.size());
+			if(employeeName.equals(colonne.get(3).getText())){
+				WebElement el = colonne.get(1);
+				WebElement el2 = el.findElement(By.xpath("a"));
+				System.out.println(el.getText());
+				el2.click();
+			}
+			else
+				System.out.println("Nope");
+			
+		}
+	}
+	
+	public boolean isDisable()
+	{
+		WebElement el = driver.findElement(By.xpath("//*[@id=\"systemUser_userType\"]"));
+		System.out.println("tagname = " + el.getTagName());
+		System.out.println("class = " + el.getClass());
+		return (!el.isEnabled());
+	}
+	
 }
