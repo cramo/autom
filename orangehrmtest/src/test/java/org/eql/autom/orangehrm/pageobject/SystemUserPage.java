@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class SystemUserPage extends MenuPage {
@@ -33,7 +34,7 @@ public class SystemUserPage extends MenuPage {
 		
 	}
 	
-	public void getUserbyEmployeeName(String employeeName) {
+	public PageDetailUtilisateur getUserbyEmployeeName(String employeeName) throws InvalidTableRowNumberException {
 		List<WebElement> lignes = driver.findElements(By.xpath("//*[@id=\"resultTable\"]/tbody/tr"));
 		for(WebElement ligne : lignes){
 			System.out.println("lignes = " + lignes.size());
@@ -44,11 +45,18 @@ public class SystemUserPage extends MenuPage {
 				WebElement el2 = el.findElement(By.xpath("a"));
 				System.out.println(el.getText());
 				el2.click();
+				return PageFactory.initElements(driver, PageDetailUtilisateur.class);
 			}
 			else
 				System.out.println("Nope");
 			
 		}
+		throw new InvalidTableRowNumberException("message");
+	}
+	
+	public int trouverLignesContenantUtilisateurParNom(String nom) {
+		return 0;
+		
 	}
 	
 	public boolean isDisable()
@@ -57,6 +65,14 @@ public class SystemUserPage extends MenuPage {
 		System.out.println("tagname = " + el.getTagName());
 		System.out.println("class = " + el.getClass());
 		return (!el.isEnabled());
+	}
+	
+	public boolean isDisableSelect() {
+		WebElement el = driver.findElement(By.xpath("//*[@id=\"systemUser_userType\"]"));
+		Select select = new Select(el);
+		select.getOptions();
+		
+		return false;
 	}
 	
 }

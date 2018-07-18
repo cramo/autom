@@ -2,8 +2,11 @@ package org.eql.autom.orangehrm.pageobject;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class MenuPage {
 
@@ -32,6 +35,25 @@ public abstract class MenuPage {
 
 	@FindBy(xpath = "/html/body/div[1]/div[2]/ul/li[8]/a/b")
 	protected WebElement directory;
+	
+	@FindBy(id = "menu_admin_viewAdminModule")
+	private WebElement menuAdmin;
+	
+	@FindBy(id = "menu_admin_UserManagement")
+	private WebElement menuUserManagement;
+	
+	@FindBy(id = "menu_admin_viewSystemUsers")
+	private WebElement menuViewSystemUsers;
+	
+	public SystemUserPage cliquerMenuViewSystemUsers() {
+		Actions actions = new Actions(driver);
+		actions.moveToElement(menuAdmin).moveToElement(menuUserManagement).build().perform();
+		
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.and(ExpectedConditions.visibilityOfAllElements(menuViewSystemUsers), ExpectedConditions.elementToBeClickable(menuViewSystemUsers)));		
+		menuViewSystemUsers.click();
+		return PageFactory.initElements(driver, SystemUserPage.class);
+	}
 
 	public MenuPage(WebDriver driver) {
 		super();
