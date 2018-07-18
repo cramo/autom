@@ -4,7 +4,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -34,10 +38,17 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class UserManagementTest {
 
@@ -45,21 +56,26 @@ public class UserManagementTest {
 	private LoginPage loginPage;
 
 	@Before
-	public void beforeTest() {
-		System.setProperty("webdriver.gecko.driver", "C:\\Users\\formation\\geckodriver.exe");
-
-		/*
-		 * boolean isDebug =
-		 * java.lang.management.ManagementFactory.getRuntimeMXBean().getInputArguments()
-		 * .toString().indexOf("-agentlib:jdwp") > 0; try { if (isDebug)
-		 * Runtime.getRuntime().exec("taskkill /F /IM geckodriver.exe"); } catch
-		 * (IOException e) { e.printStackTrace(); }
-		 */
-
-		/*this.driver = new FirefoxDriver();
+	public void beforeTest() throws MalformedURLException {
+		//System.setProperty("webdriver.gecko.driver", "C:\\Users\\formation\\geckodriver.exe");
+		//-Dwebdriver.gecko.driver="C:\\Users\\formation\\geckodriver.exe"
+		boolean isDebug = java.lang.management.ManagementFactory.getRuntimeMXBean().getInputArguments().toString()
+				.indexOf("-agentlib:jdwp") > 0;
+		try {
+			if (isDebug)
+				Runtime.getRuntime().exec("taskkill /F /IM geckodriver.exe");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		DesiredCapabilities cap = new DesiredCapabilities();
+		cap.setBrowserName("firefox");
+		cap.setPlatform(org.openqa.selenium.Platform.WINDOWS);
+		this.driver = new RemoteWebDriver(new URL("http://192.168.2.129:4444/wd/hub"), cap);
+		//this.driver = new FirefoxDriver();
 		this.loginPage = PageFactory.initElements(this.driver, LoginPage.class);
 		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		this.driver.get("http://127.0.0.1/orangehrm-4.0/symfony/web/index.php/auth/login");*/
+		this.driver.get("http://127.0.0.1/orangehrm-4.0/symfony/web/index.php/auth/login");
 	}
 
 	@Ignore
@@ -72,7 +88,7 @@ public class UserManagementTest {
 		PageDetailUtilisateur detail = sup.getUserbyEmployeeName("E E E");
 		boolean b = sup.isDisable();
 		Assert.assertTrue(b);
-		//assertTrue(detail.formulaireInactif());
+		// assertTrue(detail.formulaireInactif());
 	}
 
 	@Ignore
@@ -86,130 +102,141 @@ public class UserManagementTest {
 		WebElement iframe2 = this.driver.findElement(By.xpath("//*[@id=\"content\"]/iframe"));
 		System.out.println("hahihi " + iframe2.getAttribute("src"));
 	}
-	
-	@Ignore
-	public void getAlertClicJSTest() {
+
+	@Test
+	public void getAlertClicJSTest() throws FileNotFoundException, IOException {
+		String path;
+
 		this.driver.get("https://www.startyourdev.com/html/evenement-html-onclick");
 		WebElement button = this.driver.findElement(By.xpath("//*[@id=\"div_code_rendu\"]/input"));
 		button.click();
+		// screenshot
+		File source = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		path = /* "./target/screenshots/" */"C:\\Users\\formation\\Documents\\" + source.getName();
+		java.nio.file.Files.copy(Paths.get(source.getAbsolutePath()), new FileOutputStream(path));
 		this.driver.switchTo().alert().dismiss();
 	}
-	
+
 	@Ignore
 	public void getTabs() {
 		this.driver.get("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_link_target");
 		this.driver.switchTo().frame(0);
 		WebElement button = this.driver.findElement(By.xpath("/html/body/a"));
-		
+
 		Set<String> hanldesAvantClic = driver.getWindowHandles();
 		String pointDeDepart = driver.getWindowHandle();
 		button.click();
 		driver.switchTo().defaultContent();
 		Set<String> hanldesApresClic = driver.getWindowHandles();
-		//this.driver.switchTo().window("https://www.w3schools.com/");
+		// this.driver.switchTo().window("https://www.w3schools.com/");
 		hanldesApresClic.removeAll(hanldesAvantClic);
 		String nouveauHandle = hanldesApresClic.iterator().next();
 		driver.switchTo().window(nouveauHandle);
 		WebElement titre = driver.findElement(By.xpath("//h1/following-sibling::p"));
 		assertEquals("The language for building web pages", titre.getText());
 		driver.switchTo().window(pointDeDepart);
-		//driver.close();
-		
+		// driver.close();
+
 	}
-	
+
 	@Ignore
 	public void transformationDate() {
-		//passer d'un texte à une date
+		// passer d'un texte à une date
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		LocalDate parseDate = LocalDate.parse("01/01/2000", formatter);
-		
-		//passer d'une date à un texte
+
+		// passer d'une date à un texte
 		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yy");
 		DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("dd-MM-yy");
 		String date = format.format(formatter2);
-		
-		//comparaison
-		assertEquals("comparaison des dates", "01-01-00", date);	
+
+		// comparaison
+		assertEquals("comparaison des dates", "01-01-00", date);
 	}
-	
+
 	@Ignore
 	public void transformationDate2() {
 		String dateDepart = "FEB 3rd 2018";
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d yyyy");
 		formatter.withLocale(Locale.US);
-		
+
 		String mois = dateDepart.substring(1, 3).toLowerCase();
-		
+
 		String dateAvantPretraitement = "FEB 3rd 2018";
 		dateAvantPretraitement = dateAvantPretraitement.replaceAll("(\\d+) (st|nd|rd|th)", "$1");
-		
+
 		System.out.println("Date depart = " + dateDepart);
 		LocalDate parsedDate = LocalDate.parse("Feb 3 2018", formatter);
-		
-		
-		DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MMM-dd",  Locale.FRENCH);
+
+		DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MMM-dd", Locale.FRENCH);
 		String date = parsedDate.format(formatter2);
-		
+
 		assertEquals("comparaison des dates", "2018-FEV-03", date);
 	}
-	
-	
+
 	@Ignore
 	public void insertDataTest() throws SQLException, Exception {
-		//jdbc:postgresql://hist:port/database
-			IDatabaseTester databaseTester = new JdbcDatabaseTester("org.postgresql.Driver", "jdbc:postgresql://localhost:5432/jpetstore", "postgres", "admin");
-			//IDataSet databaseDataSet = databaseTester.getConnection().createDataSet();
-			//ITable actualTable = databaseDataSet.getTable("category");
-			QueryDataSet databaseDataSet = new QueryDataSet(databaseTester.getConnection());
-			databaseDataSet.addTable("category", "INSERT INTO category VALUES ('LION','Lion','<image src=\"../images/lion_icon.gif\"><font size=\"5\" color=\"blue\"> Lion</font>');");
-			databaseTester.setSetUpOperation(DatabaseOperation.INSERT);
-			databaseTester.setDataSet(databaseDataSet);
-			databaseTester.onSetup();
+		// jdbc:postgresql://hist:port/database
+		IDatabaseTester databaseTester = new JdbcDatabaseTester("org.postgresql.Driver",
+				"jdbc:postgresql://localhost:5432/jpetstore", "postgres", "admin");
+		// IDataSet databaseDataSet = databaseTester.getConnection().createDataSet();
+		// ITable actualTable = databaseDataSet.getTable("category");
+		QueryDataSet databaseDataSet = new QueryDataSet(databaseTester.getConnection());
+		databaseDataSet.addTable("category",
+				"INSERT INTO category VALUES ('LION','Lion','<image src=\"../images/lion_icon.gif\"><font size=\"5\" color=\"blue\"> Lion</font>');");
+		databaseTester.setSetUpOperation(DatabaseOperation.INSERT);
+		databaseTester.setDataSet(databaseDataSet);
+		databaseTester.onSetup();
 	}
-	
+
 	@Ignore
 	public void deleteDataTest() throws SQLException, Exception {
-		//jdbc:postgresql://hist:port/database
-			IDatabaseTester databaseTester = new JdbcDatabaseTester("org.postgresql.Driver", "jdbc:postgresql://localhost:5432/jpetstore", "postgres", "admin");
-			//IDataSet databaseDataSet = databaseTester.getConnection().createDataSet();
-			//ITable actualTable = databaseDataSet.getTable("category");
-			QueryDataSet databaseDataSet = new QueryDataSet(databaseTester.getConnection());
-			databaseDataSet.addTable("category", "DELETE FROM category WHERE catid='LION';");
-			databaseTester.setSetUpOperation(DatabaseOperation.DELETE);
-			databaseTester.setDataSet(databaseDataSet);
-			databaseTester.onSetup();
+		// jdbc:postgresql://hist:port/database
+		IDatabaseTester databaseTester = new JdbcDatabaseTester("org.postgresql.Driver",
+				"jdbc:postgresql://localhost:5432/jpetstore", "postgres", "admin");
+		// IDataSet databaseDataSet = databaseTester.getConnection().createDataSet();
+		// ITable actualTable = databaseDataSet.getTable("category");
+		QueryDataSet databaseDataSet = new QueryDataSet(databaseTester.getConnection());
+		databaseDataSet.addTable("category", "DELETE FROM category WHERE catid='LION';");
+		databaseTester.setSetUpOperation(DatabaseOperation.DELETE);
+		databaseTester.setDataSet(databaseDataSet);
+		databaseTester.onSetup();
 	}
-	
-	private IDataSet readDataSet(String fileName) throws Exception{
+
+	private IDataSet readDataSet(String fileName) throws Exception {
 		return new FlatXmlDataSetBuilder().build(new File(fileName));
 	}
-	
-	
-	@Test
+
+	@Ignore
 	public void comareDataTest() throws SQLException, Exception {
-		//jdbc:postgresql://hist:port/database
-			IDatabaseTester databaseTester = new JdbcDatabaseTester("org.postgresql.Driver", "jdbc:postgresql://localhost:5432/jpetstore", "postgres", "admin");
-			IDataSet databaseDataSet = databaseTester.getConnection().createDataSet();
-			ITable actualTable = databaseDataSet.getTable("category");
-			
-			IDataSet expectedDataSet = readDataSet("src/main/resources/default-dataset.xml");
-			ITable expectedTable = expectedDataSet.getTable("category");
-			Assertion.assertEquals(expectedTable, actualTable);
+		// jdbc:postgresql://hist:port/database
+		IDatabaseTester databaseTester = new JdbcDatabaseTester("org.postgresql.Driver",
+				"jdbc:postgresql://localhost:5432/jpetstore", "postgres", "admin");
+		IDataSet databaseDataSet = databaseTester.getConnection().createDataSet();
+		ITable actualTable = databaseDataSet.getTable("category");
+
+		IDataSet expectedDataSet = readDataSet("src/main/resources/default-dataset.xml");
+		ITable expectedTable = expectedDataSet.getTable("category");
+		Assertion.assertEquals(expectedTable, actualTable);
 	}
-	
-	
+
+	@Ignore
+	public void scriptTest() throws IOException, Exception {
+		Runtime.getRuntime().exec("C:\\Users\\formation\\Documents\\test-lite.exe");
+		Thread.sleep(5000);
+	}
+
 	@After
 	public void afterTest() throws InterruptedException {
 		// kill les processus geckodriver puis quit le navigateur/driver
-		/*try {
-			Runtime.getRuntime().exec("taskkill /F /IM geckodriver.exe");
-			Runtime.getRuntime().exec("taskkill /F /IM plugin-container.exe");
-			Runtime.getRuntime().exec("taskkill /F /IM firefox.exe");
-		} catch (IOException e) {
-			//e.printStackTrace();
-			System.out.println("Pas de task kill");
-		}*/
-		//this.driver.quit();
+		/*
+		 * try { Runtime.getRuntime().exec("taskkill /F /IM geckodriver.exe");
+		 * Runtime.getRuntime().exec("taskkill /F /IM plugin-container.exe");
+		 * Runtime.getRuntime().exec("taskkill /F /IM firefox.exe"); } catch
+		 * (IOException e) { //e.printStackTrace();
+		 * System.out.println("Pas de task kill"); }
+		 */
+		// this.driver.quit();
 	}
 
 }

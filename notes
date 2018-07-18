@@ -217,5 +217,20 @@ Concetption des ...
 ATMP : 
 
 Katalon plugin firefox pour Selenuim
+Selenium IDE
+Selenium Builder
+Ranorex (payant)
+
+https://www.freeformatter.com/java-regex-tester.html : regex testing
+
+https://www.postgresql.org/docs/7.4/static/jdbc-use.html
+
+java -jar selenuim-server-standalone-3.13.0.jar -role -hub -port 4444
+java -jar -Dwebdriver.gecko.driver="C:\Users\formation\geckodriver.exe" selenuim-server-standalone-3.13.0.jar -role node -hub http://localhost:4444
+
+sciTe 
+ControlSetText("Ouvrir", "", "Edit1", "resources.pak")
+ControlClick("Ouvrir", "", "Button1")
+
 
 kill des tasks geckodriver : taskkill /F /IM geckodriver.exe
