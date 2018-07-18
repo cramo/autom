@@ -28,7 +28,8 @@ public class PremierTestSelenium {
 			driver.get("http://localhost:8180/jpetstore-1.0.5-env2/");
 
 			// driver.findElement(By.xpath("//a[@href = \"shop/index.do\"]")).click();
-			// WebElement lienEntree = driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/p[5]/a"));
+			// WebElement lienEntree =
+			// driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/p[5]/a"));
 			/*
 			 * WebElement lienEntree = driver.findElement(By.linkText("Enter the Store"));
 			 * assertEquals("text du lien", "Enter the Store", lienEntree.getText());
@@ -70,13 +71,12 @@ public class PremierTestSelenium {
 					ExpectedConditions.and(ExpectedConditions.elementToBeClickable(By.linkText("Enter the Store")),
 							ExpectedConditions.visibilityOfElementLocated(By.linkText("Enter the Store"))));
 
-			if(b == true)
-			{
-				WebElement element2 = wait2.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Enter the Store")));
+			if (b == true) {
+				WebElement element2 = wait2
+						.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Enter the Store")));
 				assertEquals("texteDuLien2", "Enter the Store", element2.getText());
 			}
-				
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
