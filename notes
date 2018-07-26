@@ -234,3 +234,11 @@ ControlClick("Ouvrir", "", "Button1")
 
 
 kill des tasks geckodriver : taskkill /F /IM geckodriver.exe
+
+#Lecture de données
+
+fichiers plats: properties, à champs fixes, avec séparateurs (CSV)
+
+fichiers structurés : XML, Excel, JSON
+
+Lire du Excel → bibliotheque POI
