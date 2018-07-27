@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.eql.autom2</groupId>
-	<artifactId>ParserHandlerXML</artifactId>
+	<groupId>org.eql</groupId>
+	<artifactId>parsers</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<dependencies>
@@ -12,26 +12,15 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.w3c/dom -->
-		<dependency>
-			<groupId>org.w3c</groupId>
-			<artifactId>dom</artifactId>
-			<version>2.3.0-jaxb-1.0.6</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
 			<version>3.17</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
 			<version>3.17</version>
 		</dependency>
-
-
 	</dependencies>
 </project>

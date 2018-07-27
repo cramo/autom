@@ -165,15 +165,19 @@ public class ParserDOM {
 		// }
 	}
 	
-	private void afficherToutLesNoeuds() {
+	/*public void afficherToutLesNoeuds() {
 		affichertoutLesNoeudsRec(this.xmlDocument);
 	}
 
 	private void affichertoutLesNoeudsRec(Node noeud){
 		System.out.println(noeud.getNodeName() + "contenu: " + noeud.getNodeValue());
 		
+		NodeList l = noeud.getChildNodes();
 		
-	}
+			if (l != null)) {
+				for (int i = 0; i < getLen; i++) {
+			}
+	}*/
 	
 	public String toString() {
 		return this.fichier;
