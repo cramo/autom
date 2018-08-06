@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Execution report - squash-ta-project-archetype:1.10.1-RELEASE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="public/stylesheets/knacss.css" media="all" />
+<link rel="icon" type="image/png" href="public/images/logo_squash_favicone.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="public/images/logo_squash_favicone.ico" />
+<script type="text/javascript" src="public/javascripts/dropdown.js" ></script>
+</head>
+<body class="ml2 mr2 mt1">
+    <div id="header" class="row">
+        <div class="col w20">
+            <img class="left" src="public/images/logo_squash.png" alt="Logo Squash" />
+        </div>
+        <div class="col-mid txtcenter"><h1>Automated Test Execution Report</h1></div>
+    </div>
+    
+    <div id="content">
+        <div id="summary">
+            <div class="info">
+                <span>GroupId:&nbsp;</span>org.squastest.ta<br/> 
+                <span>ArtifactId:&nbsp;</span>squash-ta-project-archetype<br/> 
+                <span>Version:&nbsp;</span>1.10.1-RELEASE<br/> 
+                <br/> 
+                <span>Execution date:&nbsp;</span>08/06/2018 17:28:02
+                <br/>
+            </div>
+
+            <!-- GLOBAL SUMMARY -->
+            <table class="w100 striped">
+                <thead>
+                    <tr class="table-header">
+                        <th colspan=2>Test Set</th>
+                        <th class="w10">Tests</th>
+                        <th class="w10"><img src="public/images/Circle_Green.png" />&nbsp;Successes</th>
+                        <th class="w10"><img src="public/images/Circle_Yellow.png" />&nbsp;Failures</th>
+                        <th class="w10"><img src="public/images/Circle_Red.png" />&nbsp;Errors</th>
+                        <th class="w10"><img src="public/images/Circle_Grey.png" />&nbsp;Not run</th>
+                        <th class="w10"><img src="public/images/Circle_Grey.png" />&nbsp;Not found</th>
+                        <th class="w10">Success Rate</th>
+                        <th class="w10">Time (s)</th>
+                    </tr>
+                </thead>
+                    <tbody>
+    <tr>
+        <td class="center status">
+            <div style="width:15px"><a href="#tests">        <img src="public/images/Circle_Yellow.png" />
+</a></div>
+        </td>
+        <td><a href="#tests">tests</a></td>
+        <td>2</td>
+        <td>1</td>
+        <td>1</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>50%</td>
+        <td>5,6</td>
+    </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr class="b">
+                            <td colspan=2>Total:</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>                        
+                            <td>50%</td>
+                            <td>5,6</td>
+                        </tr>
+                    </tfoot>
+            </table>
+            <div class="note">
+                Note:
+                <ul>
+                    <li>"Failures" are anticipated and checked for with assertions whereas "errors" are unanticipated.</li>
+                    <li>"Not run" means that the test case was not run, because an error / failure occurred during the ecosystem setup phase.</li>
+                    <li>The ecosystem might end up with an "error" or "failure" status, even if all its test cases were successful. It means an error / failure occurred during the ecosystem teardown phase.</li>
+                </ul> 
+            </div>
+        </div>
+        
+                <div class="ecosystem">
+    <div class="ecosystem-header">
+        <h2>
+            <a id="tests"></a>        <img src="public/images/Circle_Yellow.png" />
+tests
+        </h2>
+    </div>
+    <div class="ecosystem-body">
+        <div class="ecosystem-summary">
+            <table class="w100 striped">
+                <thead>
+                    <tr class="table-header">
+                        <th colspan="2">Script</th>
+                        <th class="w10">Status</th>
+                        <th class="w10">Time (s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+    <tr>
+        <td class="center status"><a href="#tests_first-test.ta">         <img src="public/images/Circle_Green.png" />
+ </a></td>
+        <td>
+                <a href="#tests_first-test.ta">first-test.ta</a>
+        </td>
+        <td>        Success
+</td>
+        <td>
+                0,276
+        </td>
+    </tr>
+    <tr>
+        <td class="center status"><a href="#tests_selenium.ta">         <img src="public/images/Circle_Yellow.png" />
+ </a></td>
+        <td>
+                <a href="#tests_selenium.ta">selenium.ta</a>
+        </td>
+        <td>        Failure
+</td>
+        <td>
+                5,304
+        </td>
+    </tr>
+                </tbody>
+            </table>
+            <div class="script-link">
+                <a href="#header">[Back to top]</a>
+            </div>
+        </div>    <div class="script">
+        <div class="script-header">
+            <h3>
+                        <img src="public/images/Circle_Green.png" />
+<a id="tests_first-test.ta"></a> first-test.ta
+            </h3>
+        </div>
+        <div class="script-content">
+    
+            <div class="note">
+                <span>Status:&nbsp;</span>        Success
+<br/>
+                <span>Time (s):&nbsp;</span>0,276
+            </div>
+    
+            <table class="w100 striped">
+                <thead>
+                    <tr class="table-header">
+                        <th colspan="2" class="big">Test steps</th>
+                        <th class="w50p txtcenter">Line</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td colspan="3"><strong>SETUP :</strong></td>
+                        </tr>
+    <tr class="a">
+        <td class="center status">
+        <img src="public/images/Circle_Green.png" />
+        </td>
+        <td>
+            <div class="col">LOAD sample-resource.txt AS resource</div>
+        </td>
+        <td class="txtcenter instruction-line">
+            9
+        </td>
+    </tr>
+    <tr class="a">
+        <td class="center status">
+        </td>
+        <td>
+            <div class="col">// here we test the macro defined in shortcuts/sample_shortcut.macro. Note that none of the instructions here are case sensitive :</div>
+        </td>
+        <td class="txtcenter instruction-line">
+            11
+        </td>
+    </tr>
+                
+                        <tr>
+                            <td colspan="3"><strong>TEST :</strong></td>
+                        </tr>
+    <tr class="a">
+        <td class="center status">
+        <img src="public/images/Circle_Green.png" />
+        </td>
+        <td>
+            <div class="col">#  LOAD sample-dataset.xml TO XML DATASET dataset</div>
+        </td>
+        <td class="txtcenter instruction-line">
+            15
+        </td>
+    </tr>
+                    
+                </tbody>
+            </table>
+            <br/>
+        </div>
+    </div>
+    <div class="script-link">
+        <a href="#header">[Back to top]</a>&nbsp;<a href="#tests">[Back to tests]</a>
+    </div>
+    
+    <div class="script">
+        <div class="script-header">
+            <h3>
+                        <img src="public/images/Circle_Yellow.png" />
+<a id="tests_selenium.ta"></a> selenium.ta
+            </h3>
+        </div>
+        <div class="script-content">
+    
+            <div class="note">
+                <span>Status:&nbsp;</span>        Failure
+<br/>
+                <span>Time (s):&nbsp;</span>5,304
+            </div>
+    
+            <table class="w100 striped">
+                <thead>
+                    <tr class="table-header">
+                        <th colspan="2" class="big">Test steps</th>
+                        <th class="w50p txtcenter">Line</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                        <tr>
+                            <td colspan="3"><strong>TEST :</strong></td>
+                        </tr>
+    <tr class="a">
+        <td class="center status">
+        <img src="public/images/Circle_Yellow.png" />
+        </td>
+        <td>
+                <div class="row">
+    <div id="toggle0-expand" class="col-mid toggle-button">
+        <a href="javascript:toggleDisplay('toggle0');"><img src="public/images/expand.png"/></a>
+    </div>
+    <div id="toggle0-collapse" class="desktop-hidden toggle-button">
+        <a href="javascript:toggleDisplay('toggle0');"><img src="public/images/collapse.png"/></a>
+    </div>
+                    <div class="col"># EXECUTE_SELENIUM2 selenium/src/test WITH MAIN CLASS org.eql.autom.orangehrm.junit.UserManagementTest</div>
+                </div>
+                <div id="toggle0" class="desktop-hidden inner-instruction">
+                        <div class="row">
+                            <div class="col inside-status">
+        <img src="public/images/Circle_Green.png" />
+                            </div>
+                            <div class="col">          
+            <div class="col">LOAD selenium/src/test AS __temp_3.file</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col inside-status">
+        <img src="public/images/Circle_Green.png" />
+                            </div>
+                            <div class="col">          
+            <div class="col">CONVERT __temp_3.file TO script.java(compile) AS __temp_4.compiled</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col inside-status">
+        <img src="public/images/Circle_Green.png" />
+                            </div>
+                            <div class="col">          
+            <div class="col">CONVERT __temp_4.compiled TO script.java.selenium2(script) USING $(org.eql.autom.orangehrm.junit.UserManagementTest) AS __temp_5.selenium</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col inside-status">
+        <img src="public/images/Circle_Green.png" />
+                            </div>
+                            <div class="col">          
+            <div class="col">EXECUTE execute WITH __temp_5.selenium AS __temp_6.result</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col inside-status">
+        <img src="public/images/Circle_Yellow.png" />
+                            </div>
+                            <div class="col">          
+                <div class="col">ASSERT __temp_6.result IS success</div>
+                <div class="stack">
+    <div class="row">
+    <div id="toggle5-expand" class="col-mid toggle-button">
+        <a href="javascript:toggleDisplay('toggle5');"><img src="public/images/expand.png"/></a>
+    </div>
+    <div id="toggle5-collapse" class="desktop-hidden toggle-button">
+        <a href="javascript:toggleDisplay('toggle5');"><img src="public/images/collapse.png"/></a>
+    </div>
+        
+        <div class="col-mid">Selenium test failed. Following are the name of the tests that failed:
+getAlertClicJSTest(org.eql.autom.orangehrm.junit.UserManagementTest)
+</div>
+    </div>
+    <div class="row">
+        <div id="toggle5" class="desktop-hidden small col trace">
+            <pre>
+org.squashtest.ta.framework.exception.AssertionFailedException: Selenium test failed. Following are the name of the tests that failed:
+getAlertClicJSTest(org.eql.autom.orangehrm.junit.UserManagementTest)
+
+	at org.squashtest.ta.plugin.selenium.assertions.SeleniumIsSuccess.test(SeleniumIsSuccess.java:83)
+	at org.squashtest.ta.backbone.engine.wrapper.UnaryAssertionHandler.test(UnaryAssertionHandler.java:94)
+	at org.squashtest.ta.backbone.engine.instructionrunner.DefaultUnaryAssertionRunner.doRun(DefaultUnaryAssertionRunner.java:86)
+	at org.squashtest.ta.backbone.engine.instructionrunner.AbstractDefaultInstructionRunner.run(AbstractDefaultInstructionRunner.java:69)
+	at org.squashtest.ta.backbone.engine.impl.TestRunnerImpl.runInstruction(TestRunnerImpl.java:205)
+	at org.squashtest.ta.backbone.engine.impl.TestRunnerImpl.runInstructionList(TestRunnerImpl.java:150)
+	at org.squashtest.ta.backbone.engine.impl.TestRunnerImpl.runMetaInstruction(TestRunnerImpl.java:174)
+	at org.squashtest.ta.backbone.engine.impl.TestRunnerImpl.runInstructionList(TestRunnerImpl.java:148)
+	at org.squashtest.ta.backbone.engine.impl.TestRunnerImpl.runPhase(TestRunnerImpl.java:138)
+	at org.squashtest.ta.backbone.engine.impl.TestRunnerImpl.runTest(TestRunnerImpl.java:109)
+	at org.squashtest.ta.backbone.engine.impl.EcosystemRunnerImpl.runAllTests(EcosystemRunnerImpl.java:202)
+	at org.squashtest.ta.backbone.engine.impl.EcosystemRunnerImpl.run(EcosystemRunnerImpl.java:104)
+	at org.squashtest.ta.backbone.engine.impl.SuiteRunnerImpl.execute(SuiteRunnerImpl.java:68)
+	at org.squashtest.ta.backbone.engine.impl.EngineImpl.execute(EngineImpl.java:63)
+	at org.squashtest.ta.maven.SquashTAMojo.executeImpl(SquashTAMojo.java:309)
+	at org.squashtest.ta.maven.AbstractSquashTaMojo.execution(AbstractSquashTaMojo.java:98)
+	at org.squashtest.ta.maven.AbstractBaseSquashTaMojo.execute(AbstractBaseSquashTaMojo.java:150)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:207)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:116)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:80)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:307)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:193)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:106)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:863)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+
+            </pre>
+        </div>
+    </div>
+                </div>
+                            </div>
+                        </div>
+                 </div>
+        </td>
+        <td class="txtcenter instruction-line">
+            5
+        </td>
+    </tr>
+                    
+                </tbody>
+            </table>
+            <br/>
+                <table class="w100 striped">
+                <thead>
+                    <tr class="table-header">
+                        <th class="big">Attachments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr><td><a href="attachments/tests/selenium.ta/EXECUTION_REPORT-seleniumReport.html">EXECUTION_REPORT-seleniumReport.html</a></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="script-link">
+        <a href="#header">[Back to top]</a>&nbsp;<a href="#tests">[Back to tests]</a>
+    </div>
+    
+    </div>
+                </div>
+        
+    </div>
+    <div class="footer txtcenter">
+        <p>Generated by Squash TA&copy; on 08/06/2018 17:28</p>
+    </div>
+</body>
+</html>

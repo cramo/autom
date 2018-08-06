@@ -1,0 +1,1 @@
+[[ATTACHMENT--|C:\Formation\SquashTA-1.10.0-RELEASE-workspace\squash-ta-project-archetype\target\squashTA\surefire-reports\attachments\tests\tests\selenium.ta\EXECUTION_REPORT-seleniumReport.html]]

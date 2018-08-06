@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite time="5.6" failures="1" tests="2" name="tests" >
+  <testcase time="0.276" classname="tests" name="first-test.ta" />
+  <testcase time="5.304" classname="tests" name="selenium.ta" >
+    <failure message="Selenium test failed. Following are the name of the tests that failed:
+getAlertClicJSTest(org.eql.autom.orangehrm.junit.UserManagementTest)
+" type="org.squashtest.ta.framework.exception.AssertionFailedException" >
+Summary
+TEST :
+[FAIL] # EXECUTE_SELENIUM2 selenium/src/test WITH MAIN CLASS org.eql.autom.orangehrm.junit.UserManagementTest
+	[SUCCESS] 	LOAD selenium/src/test AS __temp_3.file
+	[SUCCESS] 	CONVERT __temp_3.file TO script.java(compile) AS __temp_4.compiled
+	[SUCCESS] 	CONVERT __temp_4.compiled TO script.java.selenium2(script) USING $(org.eql.autom.orangehrm.junit.UserManagementTest) AS __temp_5.selenium
+		[SUCCESS] 		$(org.eql.autom.orangehrm.junit.UserManagementTest) --> {{__tempI0}}
+		[SUCCESS] 		CONVERT __temp_4.compiled TO script.java.selenium2(script) USING {{__tempI0}} AS __temp_5.selenium
+	[SUCCESS] 	EXECUTE execute WITH __temp_5.selenium AS __temp_6.result
+	[FAIL] 	ASSERT __temp_6.result IS success
+org.squashtest.ta.framework.exception.AssertionFailedException: Selenium test failed. Following are the name of the tests that failed:
+getAlertClicJSTest(org.eql.autom.orangehrm.junit.UserManagementTest)
+
+	at org.squashtest.ta.plugin.selenium.assertions.SeleniumIsSuccess.test(SeleniumIsSuccess.java:83)
+	at org.squashtest.ta.backbone.engine.wrapper.UnaryAssertionHandler.test(UnaryAssertionHandler.java:94)
+	at org.squashtest.ta.backbone.engine.instructionrunner.DefaultUnaryAssertionRunner.doRun(DefaultUnaryAssertionRunner.java:86)
+	at org.squashtest.ta.backbone.engine.instructionrunner.AbstractDefaultInstructionRunner.run(AbstractDefaultInstructionRunner.java:69)
+	at org.squashtest.ta.backbone.engine.impl.TestRunnerImpl.runInstruction(TestRunnerImpl.java:205)
+	at org.squashtest.ta.backbone.engine.impl.TestRunnerImpl.runInstructionList(TestRunnerImpl.java:150)
+	at org.squashtest.ta.backbone.engine.impl.TestRunnerImpl.runMetaInstruction(TestRunnerImpl.java:174)
+	at org.squashtest.ta.backbone.engine.impl.TestRunnerImpl.runInstructionList(TestRunnerImpl.java:148)
+	at org.squashtest.ta.backbone.engine.impl.TestRunnerImpl.runPhase(TestRunnerImpl.java:138)
+	at org.squashtest.ta.backbone.engine.impl.TestRunnerImpl.runTest(TestRunnerImpl.java:109)
+	at org.squashtest.ta.backbone.engine.impl.EcosystemRunnerImpl.runAllTests(EcosystemRunnerImpl.java:202)
+	at org.squashtest.ta.backbone.engine.impl.EcosystemRunnerImpl.run(EcosystemRunnerImpl.java:104)
+	at org.squashtest.ta.backbone.engine.impl.SuiteRunnerImpl.execute(SuiteRunnerImpl.java:68)
+	at org.squashtest.ta.backbone.engine.impl.EngineImpl.execute(EngineImpl.java:63)
+	at org.squashtest.ta.maven.SquashTAMojo.executeImpl(SquashTAMojo.java:309)
+	at org.squashtest.ta.maven.AbstractSquashTaMojo.execution(AbstractSquashTaMojo.java:98)
+	at org.squashtest.ta.maven.AbstractBaseSquashTaMojo.execute(AbstractBaseSquashTaMojo.java:150)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:207)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:116)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:80)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:307)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:193)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:106)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:863)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+
+    </failure>
+  </testcase>
+</testsuite>
