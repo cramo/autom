@@ -1,0 +1,1 @@
+cmd.exe /C CALL "C:\Program Files\SmartBear\SoapUI-5.3.0\bin\testrunner.bat" "C:\Users\poste1\Desktop\test\NOAA-soapui-project.xml" -sndfdXMLBinding_TestSuite -cLatLonListZipCode_TestCase

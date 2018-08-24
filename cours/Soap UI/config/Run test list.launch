@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2e.Maven2LaunchConfigurationType">
+<booleanAttribute key="M2_DEBUG_OUTPUT" value="false"/>
+<stringAttribute key="M2_GOALS" value="squash-ta:run -Dlog4j.configurationFile=log4j2.xml"/>
+<booleanAttribute key="M2_NON_RECURSIVE" value="false"/>
+<booleanAttribute key="M2_OFFLINE" value="false"/>
+<stringAttribute key="M2_PROFILES" value=""/>
+<listAttribute key="M2_PROPERTIES">
+<listEntry value="ta.test.suite=${string_prompt:the test list to run (=comma separated test names, with possible regex or wildcards)}"/>
+</listAttribute>
+<stringAttribute key="M2_RUNTIME" value="C:\\Users\\qdusser\\Documents\\SquashTA\\apache-maven-3.3.3"/>
+<booleanAttribute key="M2_SKIP_TESTS" value="false"/>
+<booleanAttribute key="M2_UPDATE_SNAPSHOTS" value="false"/>
+<booleanAttribute key="M2_WORKSPACE_RESOLUTION" value="false"/>
+<stringAttribute key="org.eclipse.debug.core.ATTR_REFRESH_SCOPE" value="${project}"/>
+<stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="${project_loc}"/>
+<stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk7+"/>
+</launchConfiguration>

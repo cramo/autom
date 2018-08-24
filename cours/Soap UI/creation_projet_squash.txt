@@ -1,0 +1,1 @@
+mvn archetype:generate -DarchetypeGroupId=org.squashtest.ta -DarchetypeArtifactId=squash-ta-project-archetype -DarchetypeVersion=1.8.0-RELEASE -DarchetypeRepository=http://repo.squashtest.org/maven2/releases

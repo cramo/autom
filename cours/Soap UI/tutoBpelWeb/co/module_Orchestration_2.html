@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+ <head>
+  <meta http-equiv="x-ua-compatible" content="IE=EDGE">
+  <title>Introduction [Orchestrer un processus m&eacute;tier en BPEL avec apache ODE]</title>
+  <meta charset="UTF-8">
+  <meta name="generator" content="SCENARI 4.2.103 / Opale 3.6.100">
+  <meta name="revision" content="2017-04-17 15:29">
+  <link rel="start" href="module_Orchestration.html" title="Orchestrer un processus m&eacute;tier en BPEL avec apache ODE">
+  <meta name="author" content="AFCEPF ">
+  <meta name="keywords" content>
+  <meta name="date" content="13/04/2017">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../lib-md/w_scImgMgr/scImgMgr.css">
+  <link rel="stylesheet" type="text/css" href="../lib-md/w_scCodeMgr/scCodeMgr.css">
+  <script type="text/JavaScript">
+/*0*/ var scServices = {id:"j1ma002n"};
+/*1*/ window.scLoadParams = {destUri:"/co/module_Orchestration_2.html", pathToRoot:"../"};
+</script>
+  <script type="text/JavaScript" src="../lib-sc/scCoLib.js"></script>
+  <script type="text/JavaScript" src="../lib-sc/scSiLib.js"></script>
+  <script type="text/JavaScript" src="../lib-sc/scTiLib.js"></script>
+  <script type="text/JavaScript" src="../lib-sc/scPaLib.js"></script>
+  <script type="text/JavaScript" src="../lib-sc/scMapMgr.js"></script>
+  <script type="text/JavaScript" src="../lib-sc/scTooltipMgr.js"></script>
+  <script type="text/JavaScript" src="../lib-sc/scDynUiMgr.js"></script>
+  <script type="text/JavaScript" src="../lib-md/s_assmnt.js"></script>
+  <script type="text/JavaScript" src="../lib-sc/scDragMgr.js"></script>
+  <script type="text/JavaScript" src="../lib-sc/scAssmntMgr.js"></script>
+  <script type="text/JavaScript" src="../lib-md/w_mathjax/mathjaxMgr.js"></script>
+  <script type="text/JavaScript" src="../lib-md/s_scSearch/scSearch.js"></script>
+  <script type="text/JavaScript" src="../lib-md/w_tplMgr/tplMgr.js"></script>
+  <script type="text/JavaScript" src="../lib-md/w_scCodeMgr/scCodeMgr.js"></script>
+  <script type="text/JavaScript" src="../lib-md/w_searchMgr/searchMgr.js"></script>
+  <script type="text/JavaScript" src="../lib-md/w_scMediaMgr/scMediaMgr.js"></script>
+  <script type="text/JavaScript" src="../lib-md/w_scImgMgr/scImgMgr.js"></script>
+  <script type="text/JavaScript" src="../lib-md/w_outMgr/outMgr.js"></script>
+  <script type="text/JavaScript">
+/*0*/ try{if(window.opener && window.opener.scServices && window.opener.scServices.id == scServices.id) scServices = window.opener.scServices; else if(window.parent && window.parent.scServices && window.parent.scServices.id == scServices.id) scServices = window.parent.scServices;}catch(e){}
+scCodeMgr.registerCode("des:div.code");
+
+scImgMgr.registerAdaptedImage("ide:content/des:img");
+
+scImgMgr.registerGallery("des:div.galFra");
+
+scImgMgr.registerZoom("des:a.imgZoom",{toolbar:1,mag:1,titlePath:"par:/nsi:/des:span.capTi"});
+
+</script>
+  <link type="text/css" rel="stylesheet" href="../skin/css/main.css" media="all">
+  <link type="text/css" rel="stylesheet" href="../skin/css/skin.css" media="all">
+  <link type="text/css" rel="stylesheet" href="../skin/css/print.css" media="print">
+  <script type="text/JavaScript">
+outMgr.declareOutline("module_Orchestration.txt");
+	</script> </head>
+ <body class="default module intro">
+  <div id="root"><header id="header" role="banner"><h1><span>Orchestrer un processus m&eacute;tier en BPEL avec apache ODE</span></h1><nav role="navigation"><ul id="accessibility"><li class="waiContent"><a href="#content"><span>contenu</span></a></li><li class="waiMenu"><a href="#menu"><span>menu</span></a></li><li class="waiNav"><a href="#navigation"><span>navigation</span></a></li><li class="waiTools"><a href="#tools"><span>outils</span></a></li></ul></nav></header><main id="main" role="main"><div id="document"><div id="content" tabindex="-1"><div class="scroller"><hr class="hidden"><section class="hBk article intro"><h2 class="hBk_ti"><span>Introduction</span></h2><div class="hBk_co "><div class="rBk "><p>La programmation d'un orchestrateur de processus m&eacute;tier avec la technologie apache ODE n&eacute;cessite une m&eacute;thode rigoureuse et des actions de configuration pr&eacute;cises. Le pr&eacute;sent document a pour but d'accompagner pas &agrave; pas le d&eacute;veloppeur souhaitant s'initier &agrave; l'orchestration avec apache ODE en lui pr&eacute;sentant, &agrave; travers un exemple d'orchestration simple, toutes les &eacute;tapes n&eacute;cessaires de configuration et d'impl&eacute;mentation.</p><p>Le processus de calcul qui nous servira d'exemple de processus m&eacute;tier peut &ecirc;tre mod&eacute;lis&eacute; en BPMN de la fa&ccedil;on suivante&nbsp;:</p></div><div class="rBk res"><figure role="group" class="resInFlow jpeg"><div class="resInFlow_co "><img src="../res/DiagBPMN.jpg" width="630" height="118" alt></div></figure></div><div class="rBk "><p>L'utilisateur renseignera en entr&eacute;e du processus quatre entiers (deux pour l'addition, deux pour la multiplication). L'orchestrateur fera appel en parall&egrave;le au service web addition pour additionner entre eux les deux premiers entiers, et au service web multiplication pour multiplier entre eux les deux entiers suivants. Si le r&eacute;sultat de la multiplication n'est pas &eacute;gal &agrave; 0, l'orchestrateur invoquera le service web division afin de diviser le r&eacute;sultat de l'addition par le r&eacute;sultat de la multiplication&nbsp;; puis il transmettra &agrave; l'application cliente le r&eacute;sultat du calcul ainsi qu'un commentaire pr&eacute;cisant que l'ensemble du processus de calcul a &eacute;t&eacute; r&eacute;alis&eacute;. Dans le cas o&ugrave; le r&eacute;sultat du service web multiplication est &eacute;gal &agrave; z&eacute;ro, l'orchestrateur  transmettra &agrave; l'application cliente le r&eacute;sultat de l'addition ainsi qu'un commentaire pr&eacute;cisant que la division par z&eacute;ro est impossible et que le r&eacute;sultat transmis est uniquement celui de l'addition.</p></div></div></section></div></div><div id="navigation" tabindex="-1"><hr class="hidden"><nav class="pageTurner" role="navigation"><ul><li><a rel="prev" href="module_Orchestration_1.html" target="_self" class="btnNav prev" title="Pr&eacute;c&eacute;dent (Objectifs)"><span>Pr&eacute;c&eacute;dent</span></a></li><li><a rel="next" href="requirement.html" target="_self" class="btnNav next" title="Suivant (Les Pr&eacute;requis)"><span>Suivant</span></a></li></ul></nav></div></div><div id="toolbox"><nav id="menu" class="pageSelector" role="navigation" tabindex="-1" aria-label="menu principal"><hr class="hidden"><ul class="mnu static" data-totalPages="29"><li class="sel_no anc_no type_l  dpt_0 obj"><div class="lbl type_l" id="module_Orchestration_1.html"><a href="module_Orchestration_1.html" target="_self" class="item"><span>Objectifs</span></a></div></li><li class="sel_yes anc_no type_l  dpt_0 intro"><div class="lbl type_l" id="module_Orchestration_2.html"><span class="item"><span>Introduction</span></span></div></li><li class="sel_no anc_no type_b  type_b_c dpt_0 courseUa"><div class="lbl type_b" id="requirement.html"><a href="requirement.html" target="_self" class="item"><span>Les Pr&eacute;requis</span></a></div></li><li class="sel_no anc_no type_b  type_b_c dpt_0 courseUa"><div class="lbl type_b" id="web_services.html"><a href="web_services.html" target="_self" class="item"><span>Les Services Web</span></a></div></li><li class="sel_no anc_no type_b  type_b_c dpt_0 courseUa"><div class="lbl type_b" id="orchestration.html"><a href="orchestration.html" target="_self" class="item"><span>L'orchestration du processus</span></a></div></li><li class="sel_no anc_no type_b  type_b_c dpt_0 courseUa"><div class="lbl type_b" id="clientApp.html"><a href="clientApp.html" target="_self" class="item"><span>L'application Cliente</span></a></div></li><li class="sel_no anc_no type_l  dpt_0 conclu"><div class="lbl type_l" id="module_Orchestration_3.html"><a href="module_Orchestration_3.html" target="_self" class="item"><span>Conclusion</span></a></div></li></ul></nav><div id="tools" tabindex="-1"><hr class="hidden"><nav class="headingSelector" role="navigation"><ul class="mnu"><li class="anc_no home" data-position="uncle"><div class="lbl"><a href="module_Orchestration.html" target="_self" class="item" type="index" title="Page d'accueil du module"><span>Accueil</span></a></div></li><li class="anc_yes module" data-position="parent"><div class="lbl"><span class="item"><span>Module</span></span></div></li></ul></nav></div></div></main><footer id="footer" role="contentinfo" tabindex="-1"><hr class="hidden"><a id="linkSp" target="_blank" href="https://www.scenari.org" title="R&eacute;alis&eacute; avec Scenari (nouvelle fen&ecirc;tre)"><span><img alt="R&eacute;alis&eacute; avec Scenari (nouvelle fen&ecirc;tre)" src="../skin/img/tpl/scBtn.png"></span></a></footer></div>
+  <script type="text/JavaScript" src="../skin/js/skin.js"></script>
+  <script type="text/javascript">tplMgr.init();scCodeMgr.init();scMediaMgr.init("des:.mediaPlayer",{processYoutubeUrls :true});scImgMgr.init();outMgr.init();</script>
+ </body>
+</html>

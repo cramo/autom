@@ -1,0 +1,4 @@
+PREPARATION IMAGE:
+- ajouter le dossier "config" (avec les build maven configuré pour TA) dans le répertoire  C:\Formation\SquashTA-Toolbox-1.9.1\eclipse-jee-oxygen-R-win32-x86_64
+	--> DANS ECLIPSE : File -> import -> Run/Debug -> Launch configurations (Browse to config folder)
+- modifier le path des variables d'environnements (ajouter : C:\Formation\SquashTA-Toolbox-1.9.1\apache-maven-3.5.0\bin)

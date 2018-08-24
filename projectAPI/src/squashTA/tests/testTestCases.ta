@@ -1,0 +1,2 @@
+TEST :
+# EXECUTE_SOAPUI ndfdXMLserver-readyapi-project.xml WITH TEST_SUITE LatLonListZipCode AND TEST_CASE LatLonListZipCodeTestSuite
